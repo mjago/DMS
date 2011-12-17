@@ -1,0 +1,58 @@
+* Development Management System (DMS)
+** Tasks
+*** Setup DMS dev for emacs
+**** DONE Modify CT to unit test python
+*** Setup git command-line generation commands
+**** [1/4] TODO gitInitCmd
+     CLOCK: [2011-12-17 Sat 09:56]
+
+Initialise git repo for new project:
+
+ - [ ] if project directory doesn't exist cause exception
+ - [X] passed project base directory (where .git lives)
+ - [X] if passed parameter empty string, cause exception
+ - [X] if passed parameter that isn't string, cause exception
+ - [ ] if .git exists cause exception
+
+** Purpose
+** TODO write purpose
+** Setup main module
+#+begin_src emacs-lisp :results silent
+
+(setq ct-dev-file-name   "dms.org")                   ;; ct-dev-file-name   
+(setq ct-src-file-name       "dms.py")                ;; ct-src-file-name  
+(setq ct-test-file-name      "test_dms.py")           ;; ct-test-file-name 
+(setq ct-example-file-name   "dms.org")               ;; ct-example-file-name   
+(setq ct-project-dir   "~/.emacs.d/martyn/martyn/DMS/")  ;; ct-project-dir    
+;;(setq ct-project-dir   (expand-file-name              ;; ct-project-dir    
+;;        (concat "../" (file-name-directory                           
+;;         buffer-file-name))))                            
+(setq ct-src-dir      "lib/")                         ;; ct-src-dir      
+(setq ct-test-dir      "test/")                       ;; ct-test-dir   
+(setq ct-example-dir   "dev/")                        ;;ct-example-dir
+(setq ct-dev-dir   "dev/")                            ;;ct-dev-dir
+(setq ct-language      "python")                      ;; ct-language
+
+(message "Now Run `M-x ct-project'")
+
+#+end_src
+** Setup git module
+#+begin_src emacs-lisp :results silent
+
+(setq ct-dev-file-name   "dms.org")                   ;; ct-dev-file-name   
+(setq ct-src-file-name       "git.py")                ;; ct-src-file-name  
+(setq ct-test-file-name      "test_git.py")           ;; ct-test-file-name 
+(setq ct-example-file-name   "dms.org")               ;; ct-example-name   
+(setq ct-project-dir   "~/.emacs.d/martyn/martyn/DMS/")  ;; ct-project-dir    
+;;(setq ct-project-dir   (expand-file-name              ;; ct-project-dir    
+;;        (concat "../" (file-name-directory                           
+;;         buffer-file-name))))
+(setq ct-src-dir      "lib/")                         ;; ct-src-dir      
+(setq ct-test-dir      "test/")                       ;; ct-test-dir   
+(setq ct-example-dir   "dev/")                        ;;ct-example-dir
+(setq ct-dev-dir   "dev/")                            ;;ct-dev-dir
+(setq ct-language      "python")                      ;; ct-language
+
+(message "Now Run `M-x ct-project'")
+
+#+end_src
