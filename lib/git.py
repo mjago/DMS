@@ -38,9 +38,15 @@ def gitCheckDirectoryString(directory):
 #pipe.wait()
 #    cmd)
 #
-#def gitAdd(fileName, repoDir):
-#    cmd = 'git add ' + fileName
-#    pipe = subprocess.Popen(cmd, shell=True, cwd=repoDir)
-#    pipe.wait()
-#    return
+
+
+
+
+
+
+
+
+
+
+
 
