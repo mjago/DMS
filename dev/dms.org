@@ -3,16 +3,45 @@
 *** Setup DMS dev for emacs
 **** DONE Modify CT to unit test python
 *** Setup git command-line generation commands
-**** [1/4] TODO gitInitCmd
-     CLOCK: [2011-12-17 Sat 09:56]
+**** [8/8] gitInitCmd
+     CLOCK: [2011-12-17 Sat 10:39]--[2011-12-17 Sat 10:43] =>  0:04
+     CLOCK: [2011-12-17 Sat 09:56]--[2011-12-17 Sat 10:13] =>  0:17
 
 Initialise git repo for new project:
 
- - [ ] if project directory doesn't exist cause exception
- - [X] passed project base directory (where .git lives)
+ - [X] if project directory doesn't exist cause exception
+ - [X] if .git exists cause exception
  - [X] if passed parameter empty string, cause exception
  - [X] if passed parameter that isn't string, cause exception
- - [ ] if .git exists cause exception
+ - [X] check returns correct command
+ - [X] passed project base directory (where .git lives)
+ - [X] refactor to use gitCheckDirectoryString
+ - [X] refactor to use gitCheckHasRepo
+
+**** TODO [1/1] gitCheckHasRepo(dir)
+     CLOCK: [2011-12-17 Sat 10:21]--[2011-12-17 Sat 10:30] =>  0:09
+
+ - [X] Return True if git repo in dir (.git) 
+ - [X] Return False if not git repo in dir (.git) 
+
+**** TODO [3/3] gitCheckDirectoryString(dir)
+     CLOCK: [2011-12-17 Sat 10:33]--[2011-12-17 Sat 10:39] =>  0:06
+
+ - [X] Return True if string could be a directory
+ - [X] Return False if not passed string
+ - [X] Return False if passed empty string
+
+
+**** TODO [7/7] gitAddCmd
+     CLOCK: [2011-12-17 Sat 10:44]--[2011-12-17 Sat 11:24] =>  0:40
+
+ - [X] if project directory doesn't exist cause exception
+ - [X] if .git doesn't exist cause exception
+ - [X] if passed parameter empty string, cause exception
+ - [X] if passed parameter that isn't string, cause exception
+ - [X] cause exception if file_to_add doesn't exist
+ - [X] check returns correct command
+ - [X] passed project base directory (where .git lives) and file to add
 
 ** Purpose
 ** TODO write purpose

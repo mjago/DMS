@@ -13,7 +13,7 @@ class TestGit(unittest.TestCase):
     def test_gitInitCmd_causes_exception_when_directory_does_not_exist(self):
         self.assertRaises(Exception, git.gitInitCmd, 'doesnt-exist')
 
-    def test_gitInitCmd(self):
+    def test_gitInitCmd_returns_correct_git_command(self):
         self.assertEqual('CD ../test/test_project; git init', git.gitInitCmd('../test/test_project'))
  
     def test_gitInitCmd_causes_exception_when_passed_number(self):
@@ -22,11 +22,47 @@ class TestGit(unittest.TestCase):
     def test_gitInitCmd_causes_exception_when_passed_empty_string(self):
         self.assertRaises(Exception, git.gitInitCmd, '')
 
-    def test_gitInitCmd_
+    def test_gitInitCmd_causes_exception_when_git_directory_already_exists(self):
+        self.assertRaises(Exception, git.gitInitCmd, "test_project/git_exists")
 
- 
+    def test_gitCheckHasRepo(self):
+        self.assertFalse(git.gitCheckHasRepo("test_project/git_doesnt_exist"))
 
+    def test_gitCheckHasRepo(self):
+        self.assertTrue(git.gitCheckHasRepo("test_project/git_exists"))
 
+    def test_gitCheckDirectoryString_returns_False_when_not_passed_string(self):
+        self.assertFalse(git.gitCheckDirectoryString( 123 ))
+
+    def test_gitCheckDirectoryString_returns_False_when_passed_empty_string(self):
+        self.assertFalse(git.gitCheckDirectoryString( "" ))
+
+    def test_gitCheckDirectoryString_returns_True_when_passed_string_that_could_be_directory(self):
+        self.assertTrue(git.gitCheckDirectoryString( "abc" ))
+
+    def test_gitAddCmd_causes_exception_when_project_doesnt_contain_repo(self): 
+        self.assertRaises(Exception, git.gitAddCmd, "test_project/git_exists/lib/test.py", "lib/dummy.py")
+
+    def test_gitAddCmd_causes_exception_when_passed_number_as_parameter(self): 
+        self.assertRaises(Exception, git.gitAddCmd, 123, "test_project/git_exists/lib/test.py")
+        self.assertRaises(Exception, git.gitAddCmd, "test_project/git_exists/", 456)
+
+    def test_gitAddCmd_causes_exception_when_passed_empty_string(self):
+        self.assertRaises(Exception, git.gitAddCmd, '', 'sss') 
+
+    def test_gitAddCmd_causes_exception_when_passed_empty_string(self):
+        self.assertRaises(Exception, git.gitAddCmd, 'test_project/git_exists/', '') 
+
+    def test_gitAddCmd_causes_exception_when_project_directory_doesnt_exist(self):
+        self.assertRaises(Exception, git.gitAddCmd, 'test_project/rubbish', 'lib/dummy.py') 
+
+    def test_gitAddCmd_causes_exception_when_file_to_add_doesnt_exist(self):
+        self.assertRaises(Exception, git.gitAddCmd, 'test_project/git_exists/', 'lib/dummy.py') 
+
+    def test_gitAddCmd_returns_correct_git_command(self):
+        self.assertEqual( 'CD test_project/git_exists/; git add lib/test.py', git.gitAddCmd('test_project/git_exists/', 'lib/test.py'))
+        
+            
 
 
 
